@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClubStack.Domain\ClubStack.Domain.csproj" />
+    <ProjectReference Include="..\ClubStack.Contracts\ClubStack.Contracts.csproj" />
+    <!-- D5.5: application-level fiscalisation contracts build on the hardware
+         abstraction (IFiscalisationGateway and its value types). Application
+         depends on the abstraction only; the FiscalStackZW implementation is
+         referenced exclusively by Infrastructure. -->
+    <ProjectReference Include="..\ClubStack.Hardware\ClubStack.Hardware.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-ClubStack.Host-0c30d61e-a2cc-40ae-ad00-4a5f7395b939</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.12" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="10.0.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClubStack.Api\ClubStack.Api.csproj" />
+    <ProjectReference Include="..\ClubStack.Infrastructure\ClubStack.Infrastructure.csproj" />
+    <ProjectReference Include="..\ClubStack.Application\ClubStack.Application.csproj" />
+  </ItemGroup>
+</Project>

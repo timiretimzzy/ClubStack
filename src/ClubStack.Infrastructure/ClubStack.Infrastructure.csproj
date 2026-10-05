@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClubStack.Domain\ClubStack.Domain.csproj" />
+    <ProjectReference Include="..\ClubStack.Contracts\ClubStack.Contracts.csproj" />
+    <ProjectReference Include="..\ClubStack.Application\ClubStack.Application.csproj" />
+    <ProjectReference Include="..\ClubStack.Hardware\ClubStack.Hardware.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- D5.5 FiscalStackZW. The engine is a net48 assembly hosted on net10.0, so the
+         three assemblies it binds against are pinned with explicit versions. Without
+         these overrides the engine loads but throws at runtime for
+         System.Security.Permissions, Version=0.0.0.0 (Newtonsoft) and its
+         System.Data.SQLite interop assembly. HintPath is overridable so a deployment
+         can point at its own copy without editing the project file. -->
+    <!-- 13.0.4 rather than the 13.0.3 the reference app pins: EF Core Design 10.0.12
+         requires >= 13.0.4 and downgrades are errors here. Every 13.0.x release
+         carries AssemblyVersion 13.0.0.0, so the engine's binding is unaffected. -->
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.119" />
+    <PackageReference Include="BouncyCastle.Cryptography" Version="2.4.0" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <FiscalStackZWDllPath Condition="'$(FiscalStackZWDllPath)' == ''">C:\Users\TIMIRE\Desktop\FISCALSTACK POS\FiscalStackZWdll\Deploy\FiscalStackZW.dll</FiscalStackZWDllPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="FiscalStackZW">
+      <HintPath>$(FiscalStackZWDllPath)</HintPath>
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Identity's DataProtectorTokenProvider and DataProtection live in the
+         ASP.NET Core shared framework. Both real consumers (API and Host) are
+         ASP.NET Core apps; the Desktop client does not reference this project. -->
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.3" />
+    <PackageReference Include="Quartz" Version="4.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The environment safety guard is internal so it can be tested against synthetic
+         device configurations; only the test assembly needs to see it. -->
+    <InternalsVisibleTo Include="ClubStack.Application.Tests" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

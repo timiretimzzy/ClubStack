@@ -1,0 +1,18 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ClubStack.Api/ClubStack.Api.csproj" />
+    <Project Path="src/ClubStack.Application/ClubStack.Application.csproj" />
+    <Project Path="src/ClubStack.Contracts/ClubStack.Contracts.csproj" />
+    <Project Path="src/ClubStack.Desktop/ClubStack.Desktop.csproj" />
+    <Project Path="src/ClubStack.Domain/ClubStack.Domain.csproj" />
+    <Project Path="src/ClubStack.Hardware/ClubStack.Hardware.csproj" />
+    <Project Path="src/ClubStack.Host/ClubStack.Host.csproj" />
+    <Project Path="src/ClubStack.Infrastructure/ClubStack.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ClubStack.Api.Tests/ClubStack.Api.Tests.csproj" />
+    <Project Path="tests/ClubStack.Application.Tests/ClubStack.Application.Tests.csproj" />
+    <Project Path="tests/ClubStack.Domain.Tests/ClubStack.Domain.Tests.csproj" />
+    <Project Path="tests/ClubStack.IntegrationTests/ClubStack.IntegrationTests.csproj" />
+  </Folder>
+</Solution>

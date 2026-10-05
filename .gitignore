@@ -1,0 +1,56 @@
+# .NET / build
+bin/
+obj/
+artifacts/
+*.user
+*.suo
+.vs/
+.idea/
+*.DotSettings.user
+
+# Test results
+TestResults/
+[Tt]est[Rr]esults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Node / frontend
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.eslintcache
+.vite/
+
+# Playwright
+tests/ClubStack.E2E/test-results/
+tests/ClubStack.E2E/playwright-report/
+tests/ClubStack.E2E/blob-report/
+
+# Secrets & local configuration
+appsettings.Local.json
+appsettings.*.Local.json
+*.Development.json
+**/Properties/launchSettings.json
+.env
+.env.*
+!.env.example
+*.pfx
+*.crt
+*.pem
+*.key
+secrets.*
+user-secrets/
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Rider / JetBrains
+.idea/
+
+# Logs
+*.log
+logs/
